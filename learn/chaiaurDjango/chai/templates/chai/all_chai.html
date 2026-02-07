@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Chai
+{% endblock title %}
+
+{% block content %}
+
+<section class="border-2 border-red-700 p-6 mb-8 text-center">
+    <h1 class="text-3xl font-bold">
+        ☕ All Types Of Chai
+    </h1>
+    <p class="mt-2">
+        Yaha alag-alag chai ke types dikhaye gaye hain.
+    </p>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    {% for chai in chais %}
+    <div class="border-2 border-red-700 p-4">
+
+        <img src="{{ chai.image.url }}" alt="{{ chai.name }}"
+            class="w-full h-48 object-cover border-2 border-red-700 mb-4">
+
+        <h3 class="text-xl font-semibold mb-1">
+            {{ chai.name }}
+        </h3>
+
+        <a href="{% url 'chai_detail' chai.id %}">
+            <button>Details</button>
+        </a>
+
+    </div>
+    {% endfor %}
+
+</section>
+
+{% endblock content %}
